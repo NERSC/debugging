@@ -1,0 +1,3 @@
+[submodule "CUDA/compute-sanitizer-samples"]
+	path = CUDA/compute-sanitizer-samples
+	url = https://github.com/NVIDIA/compute-sanitizer-samples.git
