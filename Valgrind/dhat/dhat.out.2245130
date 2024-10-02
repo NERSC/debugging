@@ -1,0 +1,43 @@
+{"dhatFileVersion":2
+,"mode":"ad-hoc","verb":"Occurred"
+,"bklt":false,"bkacc":false
+,"bu":"unit","bsu":"units","bksu":"events"
+,"tu":"instrs","Mtu":"Minstr"
+,"cmd":"./ad-hoc"
+,"pid":2245130
+,"te":340933
+,"pps":
+ [{"tb":30,"tbk":1
+  ,"fs":[1,2,3]
+  }
+ ,{"tb":20,"tbk":1
+  ,"fs":[4,3]
+  }
+ ,{"tb":30,"tbk":1
+  ,"fs":[5,6,3]
+  }
+ ,{"tb":10,"tbk":1
+  ,"fs":[7]
+  }
+ ,{"tb":30,"tbk":1
+  ,"fs":[1,2,8]
+  }
+ ,{"tb":20,"tbk":1
+  ,"fs":[4,8]
+  }
+ ,{"tb":30,"tbk":1
+  ,"fs":[5,6,8]
+  }
+ ]
+,"ftbl":
+ ["[root]"
+ ,"0x4006F6: g (ad-hoc.c:5)"
+ ,"0x4006F6: f (ad-hoc.c:9)"
+ ,"0x4004C8: main (ad-hoc.c:15)"
+ ,"0x400750: f (ad-hoc.c:10)"
+ ,"0x4007A9: g (ad-hoc.c:5)"
+ ,"0x4007A9: f (ad-hoc.c:11)"
+ ,"0x400519: main (ad-hoc.c:22)"
+ ,"0x40052C: main (ad-hoc.c:17)"
+ ]
+}

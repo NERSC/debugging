@@ -1,0 +1,35 @@
+{"dhatFileVersion":2
+,"mode":"heap","verb":"Allocated"
+,"bklt":true,"bkacc":true
+,"tu":"instrs","Mtu":"Minstr"
+,"tuth":500
+,"cmd":"./basic"
+,"pid":1688970
+,"te":341947
+,"tg":336617
+,"pps":
+ [{"tb":4000,"tbk":2
+  ,"tl":7111
+  ,"mb":3000,"mbk":1
+  ,"gb":3000,"gbk":1
+  ,"eb":3000,"ebk":1
+  ,"rb":1008,"wb":1516
+  ,"fs":[1,2]
+  }
+ ,{"tb":3000,"tbk":2
+  ,"tl":1831
+  ,"mb":2000,"mbk":1
+  ,"gb":2000,"gbk":1
+  ,"eb":0,"ebk":0
+  ,"rb":2000,"wb":2000
+  ,"fs":[3,4]
+  }
+ ]
+,"ftbl":
+ ["[root]"
+ ,"0x4E056A4: malloc (in /usr/lib/valgrind/vgpreload_dhat-amd64-linux.so)"
+ ,"0x40051F: main (basic.c:11)"
+ ,"0x4E0A571: calloc (in /usr/lib/valgrind/vgpreload_dhat-amd64-linux.so)"
+ ,"0x400540: main (basic.c:15)"
+ ]
+}
