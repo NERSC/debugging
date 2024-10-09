@@ -64,9 +64,9 @@ You can find compile and runtime flags at the following web pages:
 - [Sanitizer Common
   Flags](https://github.com/google/sanitizers/wiki/SanitizerCommonFlags)
 
-## sanitizers4hpc
+## Sanitizers4hpc
 
-HPE's `sanitizers4hpc` is an aggregation tool to collect and analyze
+HPE's `Sanitizers4hpc` is an aggregation tool to collect and analyze
 LLVM Sanitizer output from a distributed-memory parallel (e.g.,
 MPI) code at scale.  It makes sanitizer's result easier to understand,
 by presenting output by group of MPI tasks sharing the same pattern.
