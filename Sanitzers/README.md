@@ -31,8 +31,7 @@ the Nvidia compiler.
 You don't need to change the way you compile your MPI code in order
 to use these tools (i.e., you can still use the Cray compiler
 wrappers `cc`/`CC`/`ftn` as normal).  For a non-MPI code, the
-following C/C++ [base compilers](../../../development/compilers/base.md)
-can be used, too.
+following C/C++ base compilers can be used, too.
 
 | GNU | Cray | Intel | AOCC | LLVM |
 |:---:|:----:|:-----:|:----:|:----:|
