@@ -30,7 +30,7 @@
       allocate (a(n))
       call random_number(a)
       val = val + sum(a)
-!     deallocate(a)                 ! ok not to deallocate
+      deallocate(a)
       end
 
       subroutine sub_bad(val,n)     ! memory leak of 4*n bytes per call
