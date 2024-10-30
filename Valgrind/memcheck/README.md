@@ -201,7 +201,7 @@ files for the errors associated with HPE software.
 The tool works only for Memcheck, Helgrind and DRD.
 
 Run as follows. Note that the Valgrind arguments are passed with
-`--valgrind-args=...` (or `-v ...`) as you can see above.
+`--valgrind-args=...` (or `-v ...`).
 
 ```
 $ module load valgrind4hpc
@@ -252,6 +252,7 @@ annotated profiling result. Note that we use the --xtree-memory=full
 
 ```
 $ module rm darshan
+
 $ cc -g -O0 -o memoryleak_mpi memoryleak_mpi.c
 
 $ srun -n 8 valgrind --xtree-memory=full --xtree-memory-file=xtmemory.%q{SLURM_JOB_ID}.%q{SLURM_PROCID}.kcg ./memoryleak_mpi
@@ -295,8 +296,8 @@ curB             curBk        totB               totBk        totFdB            
       .            .                  .            .                  .           .           void f(void)
       .            .                  .            .                  .           .           {
 100,000 (51.03%)   1 ( 0.17%)   100,000 ( 5.17%)   1 ( 0.13%)         0           0              int* x = malloc(25000 * sizeof(int));
-      .            .                  .            .                  .           .              x[25000] = 0;   // problem 1: heap block overrun
-      .            .                  .            .                  .           .           }          // problem 2: memory leak -- x not freed
+      .            .                  .            .                  .           .              x[25000] = 0;     // problem 1: heap block overrun
+      .            .                  .            .                  .           .           }                    // problem 2: memory leak -- x not freed
       .            .                  .            .                  .           .
       .            .                  .            .                  .           .           int main(int argc, char **argv)
       .            .                  .            .                  .           .           {
@@ -338,7 +339,7 @@ $ callgrind_annotate --inclusive=yes --sort=RB:100,PB:100,IB:100,DB:100 xtleak.3
 Here, `RB`, `PB`, `IB`, `DB`, etc. are for Reachable Bytes, Possibly
 lost Bytes, Indirectly lost Bytes, Definitely lost Bytes, etc.
 
-You can use Valgrind for this, too:
+You can use Valgrind4hpc for this, too:
 
 ```
 $ valgrind4hpc -n 8 -v "--xtree-leak=yes" -o xtleak.kcg ./memoryleak_mpi
