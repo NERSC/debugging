@@ -334,6 +334,74 @@ $ module rm darshan
 $ srun -n 8 valgrind --xtree-leak=yes --xtree-leak-file=xtleak.%q{SLURM_JOB_ID}.%{SLURM_PROCID}.kcg ./memoryleak_mpi
 
 $ callgrind_annotate --inclusive=yes --sort=RB:100,PB:100,IB:100,DB:100 xtleak.32282016.0.kcg
+...
+--------------------------------------------------------------------------------
+-- Auto-annotated source: memoryleak_mpi.c
+--------------------------------------------------------------------------------
+RB         PB         IB         DB               DIB        RBk        PBk        IBk        DBk        iRB        iPB
+       iIB        iDB              iDIB       iRBk       iPBk       iIBk       iDBk       dRB        dPB        dIB
+   dDB        dDIB       dRBk       dPBk       dIBk       dDBk
+
+.          .          .                .          .          .          .          .          .          .          .
+       .                .          .          .          .          .          .          .          .          .
+   .          .          .          .          .          .           #include <stdlib.h>
+.          .          .                .          .          .          .          .          .          .          .
+       .                .          .          .          .          .          .          .          .          .
+   .          .          .          .          .          .           #include <mpi.h>
+.          .          .                .          .          .          .          .          .          .          .
+       .                .          .          .          .          .          .          .          .          .
+   .          .          .          .          .          .
+.          .          .                .          .          .          .          .          .          .          .
+       .                .          .          .          .          .          .          .          .          .
+   .          .          .          .          .          .           void f(void)
+.          .          .                .          .          .          .          .          .          .          .
+       .                .          .          .          .          .          .          .          .          .
+   .          .          .          .          .          .           {
+0          0          0          100,000 (100.0%) 0          0          0          0          1 (100.0%) 0          0
+       0          100,000 (100.0%) 0          0          0          0          1 (100.0%) 0          0          0
+   0          0          0          0          0          0              int* x = malloc(25000 * sizeof(int));
+.          .          .                .          .          .          .          .          .          .          .
+       .                .          .          .          .          .          .          .          .          .
+   .          .          .          .          .          .              x[25000] = 0;     // problem 1: heap block over
+run
+.          .          .                .          .          .          .          .          .          .          .
+       .                .          .          .          .          .          .          .          .          .
+   .          .          .          .          .          .           }                    // problem 2: memory leak --
+x not freed
+.          .          .                .          .          .          .          .          .          .          .
+       .                .          .          .          .          .          .          .          .          .
+   .          .          .          .          .          .
+.          .          .                .          .          .          .          .          .          .          .
+       .                .          .          .          .          .          .          .          .          .
+   .          .          .          .          .          .           int main(int argc, char **argv)
+.          .          .                .          .          .          .          .          .          .          .
+       .                .          .          .          .          .          .          .          .          .
+   .          .          .          .          .          .           {
+.          .          .                .          .          .          .          .          .          .          .
+       .                .          .          .          .          .          .          .          .          .
+   .          .          .          .          .          .              int nproc, me;
+.          .          .                .          .          .          .          .          .          .          .
+       .                .          .          .          .          .          .          .          .          .
+   .          .          .          .          .          .              MPI_Init(&argc, &argv);
+.          .          .                .          .          .          .          .          .          .          .
+       .                .          .          .          .          .          .          .          .          .
+   .          .          .          .          .          .              MPI_Comm_size(MPI_COMM_WORLD, &nproc);
+.          .          .                .          .          .          .          .          .          .          .
+       .                .          .          .          .          .          .          .          .          .
+   .          .          .          .          .          .              MPI_Comm_rank(MPI_COMM_WORLD, &me);
+0          0          0          100,000 (100.0%) 0          0          0          0          1 (100.0%) 0          0
+       0          100,000 (100.0%) 0          0          0          0          1 (100.0%) 0          0          0
+   0          0          0          0          0          0              f();
+.          .          .                .          .          .          .          .          .          .          .
+       .                .          .          .          .          .          .          .          .          .
+   .          .          .          .          .          .              MPI_Finalize();
+.          .          .                .          .          .          .          .          .          .          .
+       .                .          .          .          .          .          .          .          .          .
+   .          .          .          .          .          .              return 0;
+.          .          .                .          .          .          .          .          .          .          .
+       .                .          .          .          .          .          .          .          .          .
+   .          .          .          .          .          .           }
+...
 ```
 
 Here, `RB`, `PB`, `IB`, `DB`, etc. are for Reachable Bytes, Possibly
