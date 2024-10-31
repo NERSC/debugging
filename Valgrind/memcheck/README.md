@@ -121,7 +121,7 @@ format specifier, `%q{FOO}` which will be replaced by the contents
 of the environment variable `FOO`.
 
 ```
-$ srun -n 8 valgrind --leak-check=yes --log-file=mc_%q{SLURM_JOB_ID}.%q{SLURM_PROCID}.out ./memoryleak_mpi
+$ srun -n 8 valgrind --leak-check=full --log-file=mc_%q{SLURM_JOB_ID}.%q{SLURM_PROCID}.out ./memoryleak_mpi
 
 $ ls -l
 -rw-------   1 elvis elvis   5481  Jun  23  08:56  mc_27100535.0.out
