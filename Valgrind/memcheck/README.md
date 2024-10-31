@@ -140,12 +140,12 @@ form representing backtrace patterns, which can be used for suppressing
 them. The command below saves output in the file `errors`:
 
 ```
-$ srun -n 1 valgrind --leak-check=full --gen-suppressions=yes --log-file=errors ./memoryleak_mpi
+$ srun -n 1 valgrind --leak-check=full --gen-suppressions=all --log-file=errors ./memoryleak_mpi
 ```
 
-Get lines not starting with `==` and save them into a suppression
-file. Then edit the file to contain only the errors you want to
-suppress.
+Grep to show lines not (`-v`) starting with `==` (`-e '^=='`) and
+save them into a suppression file, `my.supp`. Then edit the file
+to contain *only* the errors you want to suppress.
 
 ```
 $ grep -v -e '^==' errors > my.supp
