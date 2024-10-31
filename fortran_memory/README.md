@@ -156,7 +156,6 @@ indeed due to leaks in system libraries.
 
 ## Other example codes with Valgrind
 
-We see a Valgrind error with `free_twice.f90` and
-`heap_overflow_underflow.f90`. It's not clear what the cause is at
-this point.
+We see the codes `free_twice.f90` and `heap_overflow_underflow.f90`
+fail without Valgrind giving useful info.
 
