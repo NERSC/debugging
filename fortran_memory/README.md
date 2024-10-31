@@ -9,8 +9,9 @@ The codes are from 2012 NERSC training (see `/global/cfs/cdirs/training/2012/NUG
 
 ## Detecting memory leaks
 
-`memory_leaks.f90` has the total memory leaks of (4*n + 8*n)*10 =
-120*n = 120 * 1000000 bytes = 120MB from 10+20=30 memory blocks.
+`memory_leaks.f90` has total memory leaks of (4n + 8n) &times; 10
+= 120n = 120 &times; 1000000 bytes = 120MB from 10+20=30 memory
+blocks.
 
 Build as follows:
 
