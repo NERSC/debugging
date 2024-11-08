@@ -133,7 +133,7 @@ $ ls -l
 ## Suppressing errors
 
 Memcheck occasionally produces false positives or errors in the
-system library codes that  you cannot control or don't care.
+system library codes that  you cannot control or do not care about.
 
 Use `--gen-suppressions=all` to show all the errors in the correct
 form representing backtrace patterns, which can be used for suppressing
