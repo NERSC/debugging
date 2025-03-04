@@ -25,7 +25,7 @@ $ make
 
 $ cd ..
 
-$ cd cd gpu-nvidia-mmult
+$ cd gpu-nvidia-mmult
 $ make clean
 $ make
 
