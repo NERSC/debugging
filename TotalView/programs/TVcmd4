@@ -1,0 +1,2 @@
+echo 'rm -f *log ; tvscript -mpi "Open MPI" -tasks 3 -event_action "error=>display_backtrace -show_arguments -show_locals" TVscript_demo'
+rm -f *log ; tvscript -mpi "Open MPI" -tasks 3 -event_action "error=>display_backtrace -show_arguments -show_locals" TVscript_demo

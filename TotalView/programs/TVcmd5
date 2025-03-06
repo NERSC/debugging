@@ -1,0 +1,2 @@
+echo 'rm -f *log ; tvscript -memory_debugging -mpi "Open MPI" -tasks 4 -event_action "termination_notification=list_allocations" ./TVscript_demo'
+rm -f *log ; tvscript -memory_debugging -mpi "Open MPI" -tasks 4 -event_action "termination_notification=list_allocations" ./TVscript_demo
