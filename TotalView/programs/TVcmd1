@@ -1,0 +1,2 @@
+echo 'rm -f *log ; tvscript -mpi "Open MPI" -tasks 4 -create_actionpoint "TVscript_demo.c#138=print err_detail" ./TVscript_demo'
+rm -f *log ; tvscript -mpi "Open MPI" -tasks 4 -create_actionpoint "TVscript_demo.c#138=print err_detail" ./TVscript_demo
