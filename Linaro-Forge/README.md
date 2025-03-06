@@ -1,16 +1,15 @@
-Linaro Forge training materials in
+# Linaro Forge training materials
+
+See
 
 - `/global/cfs/cdirs/training/2025/linaro-forge-training`
 - `/global/cfs/cdirs/training/2024/Forge_Mar2024`
 
-To build:
+# Build
+
+## Debugging
 
 ```
-$ cp -r /global/cfs/cdirs/training/2025/linaro-forge-training .
-$ cd linaro-forge-training
-
-# Debugging
-
 $ cd correctness
 
 $ cd core-files
@@ -30,9 +29,11 @@ $ make clean
 $ make
 
 $ cd ../..
+```
 
-# Profiling
+## Profiling
 
+```
 $ cd performance
 $ ml python
 $ make -f mmult_py.makefile clean
